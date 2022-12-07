@@ -6,10 +6,8 @@ export default function Document() {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />        
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet" />
-       
-        <title>GetHub Challegend</title>
-       </Head>
-      <body >
+      </Head>
+      <body className='bg-slate-900'>
         <Main />
         <NextScript />
       </body>

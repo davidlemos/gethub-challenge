@@ -1,14 +1,17 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: [
-    "./pages/**/*.tsx"
+    "./src/**/*.tsx"
   ],
   theme: {
     extend: {
       fontFamily:{
         sans: 'Nunito, sans-serif'
-      }
+      }      
     },
   },
-  plugins: [],
+  plugins: [
+  require('tailwind-scrollbar')({ nocompatible: true }),
+  ],
 }

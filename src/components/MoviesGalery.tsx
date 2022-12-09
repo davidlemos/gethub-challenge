@@ -2,11 +2,11 @@ import IMovie from "../interfaces/IMovie";
 import MovieThumbnail from "./MovieThumbnail";
 
 interface IProps {
-    movies: Array<IMovie>,
-    title: string
+  movies: Array<IMovie>,
+  title: string
 }
 
-function MoviesGallery({ movies, title } : IProps) {
+function MoviesGallery({ movies, title }: IProps) {
   return (
     <div className="relative flex flex-col space-y-2 my-10 px-8 max-w-[1400px] mx-auto">
       <h2 className="font-semibold text-white uppercase">{title}</h2>

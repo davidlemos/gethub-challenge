@@ -3,10 +3,10 @@ import { useRouter } from "next/router";
 import IMovie from "../interfaces/IMovie";
 
 interface IProps {
-    movie: IMovie
+  movie: IMovie
 }
 
-function MovieThumbnail({ movie } : IProps) {
+function MovieThumbnail({ movie }: IProps) {
   const router = useRouter();
 
   return (

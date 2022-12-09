@@ -2,7 +2,6 @@ import Banner from "../components/Banner";
 import MoviesGallery from "../components/MoviesGalery";
 import Navbar from "../components/Navbar";
 import IMovie from "../interfaces/IMovie";
-import Popular from "../interfaces/IPopular";
 
 
 interface HomeProps {
@@ -18,7 +17,7 @@ interface HomeProps {
 export default function Home({ trendsMovies, topRatedMovies, actionsMovies, adventuresMovies, documentaryMovies, scienceFictionMovies }: HomeProps) {
   return (
     <>
-    <Navbar />
+      <Navbar />
       <Banner trends={trendsMovies} />
       <main className="relative min-h-screen after:bg-home after:bg-center after:bg-cover after:bg-no-repeat after:bg-fixed after:absolute after:inset-0 after:z-[-1]">
         <MoviesGallery movies={topRatedMovies} title="Em alta" />

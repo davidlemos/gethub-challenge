@@ -7,7 +7,9 @@ import { useRouter } from "next/router";
 import { Button } from "@mui/material";
 
 import truncate from '../utils/truncate';
-import { Add } from "@mui/icons-material";
+import {   
+  PlusCircleIcon,
+} from '@heroicons/react/24/solid'
 
 interface IProps {
   trends: Array<IMovie>
@@ -51,8 +53,8 @@ export default function Banner({ trends }: IProps) {
                 <h4 className="text-sm md:text-base max-w-4xl text-white mb-4 font-extralight">
                   {truncate(trend.overview, 200)}
                 </h4>
-                <Button size="small" startIcon={<Add />} variant="contained"
-                className="mb-28"
+                <Button size="small" startIcon={<PlusCircleIcon className="h-4" />} variant="contained"
+                className="mb-28  bg-red-700"
                 onClick={() => router.push(`/movie/${trend.id}`)}>
                   Info
                 </Button>

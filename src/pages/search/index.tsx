@@ -43,13 +43,13 @@ export default function Search() {
   const [resultForTerm, setResultForTerm] = useState("");
   const debouncedSearchTerm = useDebounce<string>(searchTerm, 1000);
 
-  useEffect(() => {    
+  useEffect(() => {
     search();
   }, [debouncedSearchTerm])
 
   const search = async () => {
 
-    if(searchTerm){
+    if (searchTerm) {
       const searchEncoded = fixedEncodeURIComponent(searchTerm);
       setIsSearching(true);
       setIsSearchingDone(false);
@@ -64,7 +64,7 @@ export default function Search() {
         await Promise.all([
           moviesRes.json(),
         ]);
-  
+
       setMovies(result.results);
       setIsSearchingDone(true);
       setTotalPages(result.total_pages);
@@ -84,9 +84,9 @@ export default function Search() {
           onChange={(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => setSearchTerm(e.target.value)}
           InputProps={{
             className: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500",
-            placeholder:"Encontre novos filmes"
+            placeholder: "Encontre novos filmes"
           }
-          
+
           }
         />
       </div>
@@ -94,11 +94,11 @@ export default function Search() {
       {
         isSearching ?
           <div className='flex items-center justify-center w-full h-28'>
-            <CircularProgress  style={{color:"#1976d2"}} />
+            <CircularProgress style={{ color: "#1976d2" }} />
           </div>
           :
-          (!movies || movies.length === 0) ?      
-          searchTerm !== "" && isSearchingDone?         
+          (!movies || movies.length === 0) ?
+            searchTerm !== "" && isSearchingDone ?
               <div className='flex flex-col justify-center items-center w-full h-full p-2 mt-6'>
                 <Image src={NotFoundMovies} height={219} width={158} alt="Nenhum filme encontrado" />
                 <h2 className='text-white mt-3 text-xl text-center'>Não encontramos resultados para "{resultForTerm}".</h2>
@@ -110,13 +110,12 @@ export default function Search() {
                 <h2 className='text-white mt-3 text-xl text-center'>Encontre novos filmes.</h2>
 
               </div>
-          :
+            :
             <div className="grid grid-cols-4 gap-4 p-4">
               {
 
                 movies.map(movie =>
                   <div
-                    // className="flex min-w-[250px] min-h-[170px] md:min-w-[330px] md:min-h-[210px] rounded-lg overflow-hidden shadow-xl cursor-pointer border-[3px] border-[#f9f9f9] border-opacity-10  hover:border-opacity-80 hover:shadow-2xl transform hover:scale-105 transition duration-300 mb-2"
                     className='p-2 flex flex-row items-center'
                   >
                     <Image
@@ -148,8 +147,8 @@ export default function Search() {
                 )
               }
             </div>
-          
-        }
+
+      }
 
     </>
   )
